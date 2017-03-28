@@ -4,7 +4,10 @@
 /storage/*.key
 /vendor
 /.idea
+<<<<<<< HEAD
 /.vagrant
+=======
+>>>>>>> origin/master
 Homestead.json
 Homestead.yaml
 .env
