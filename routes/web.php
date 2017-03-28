@@ -12,4 +12,4 @@
 */
 
 
-Route::get('/', 'generateController@index');
+Route::get('/', 'generate@index');
