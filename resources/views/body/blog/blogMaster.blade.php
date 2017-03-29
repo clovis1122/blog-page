@@ -1,5 +1,5 @@
 <p> THIS IS THE BLOG MASTERRRRRR</p>
 
-@yield('post')
+@include ('body.blog.container')
 
 @include('body.blog.pageIndex')

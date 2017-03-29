@@ -12,4 +12,23 @@
 */
 
 
-Route::get('/', 'generate@index');
+Route::get('/', 'PostController@index');
+Route::get('/create', 'PostController@create');
+Route::post('/posts', 'PostController@store');
+Route::get('/posts/{id}', 'PostController@show');
+Route::get('/posts/{id}/edit', 'PostController@edit');
+Route::patch('/posts/{id}', 'PostController@update');
+Route::delete('/posts/{id}', 'PostController@destroy');
+
+
+/*
+
+GET /posts
+GET /posts/create
+POST /posts
+GET /posts/{id}
+GET /posts/{id}/edit
+PATCH /posts/{id}
+DELETE /posts/{id}
+
+*/

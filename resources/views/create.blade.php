@@ -1,6 +1,13 @@
-@extends('mainpage')
+@extends ('mainPrototype')
 
+@section('header')
+    @include ('header.headerMaster')
+@endsection
 
-@section('content')
+@section('body')
+    @include('body.createBlog')
+@endsection
 
+@section ('footer')
+    @include ('footer.footerMaster')
 @endsection

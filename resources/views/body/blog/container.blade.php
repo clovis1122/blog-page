@@ -1,10 +1,7 @@
     <div class="container">
 
-      @yield('blog')
-      @yield('blog')
-      @yield('blog')
-      @yield('blog')
-      @yield('blog')
-      @yield('blog')
-      
+     @foreach ($posts as $post)
+       @include('body.blog.post')
+     @endforeach
+
     </div>
