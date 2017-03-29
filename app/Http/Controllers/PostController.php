@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-      $posts = post::all();
+
+      $posts = post::latest()->paginate(3);
       return view('mainpage',compact('posts'));
     }
 

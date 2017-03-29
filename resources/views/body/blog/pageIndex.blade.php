@@ -1,1 +1,3 @@
-<p>This is where the pages indexes will be....</p>
+@if (count($posts) > 1)
+    {{ $posts->links() }}
+@endif
