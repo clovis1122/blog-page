@@ -3,8 +3,10 @@
 - Protect the app from XSS attacks. [DONE]
   - Sanitize input & output.
 
-- Reorganize the code to make it more extensible. [IN PROCESS]
+- Reorganize the code to make it more extensible. [DONE]
 
-- Finish the comment section [NOT DONE]
+- Finish the comment section [IN PROGRESS]
+   -Display comments in the blog (done)
+   -Allow to submit comments to a blog (in progress)
 
 - Add autentication. [NOT DONE]
