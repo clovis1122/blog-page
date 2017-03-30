@@ -1,5 +1,6 @@
-@extends ('prototypes.page1')
+@extends ('prototypes.mainpage1')
 
-@include ('header.headerMaster')
+@include ('prototypes.menu1')
+@include ('prototypes.banner1')
 @include('blogdisplay.content')
-@include ('footer.footerMaster')
+@include ('prototypes.footer1')

@@ -4,7 +4,7 @@
       @yield('content')
     </div>
     <div class="col-sm-3 offset-sm-1 blog-sidebar">
-      @include ('sidebar.sidebarMaster')
+      @include ('prototypes.sidebar.model1')
     </div>
   </div>
 </div>
