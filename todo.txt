@@ -5,8 +5,8 @@
 
 - Reorganize the code to make it more extensible. [DONE]
 
-- Finish the comment section [IN PROGRESS]
-   -Display comments in the blog (done)
+- Finish the comment section [DONE]
+   -Display comments in the blog
    -Allow to submit comments to a blog (in progress)
 
 - Add autentication. [NOT DONE]

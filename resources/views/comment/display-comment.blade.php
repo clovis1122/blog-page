@@ -4,11 +4,11 @@
     @foreach ($comments as $comment)
         <li class=list-group-item>
             <article>
-                <strong>{{ htmlspecialchars($post->created_at->diffForHumans()) }}</strong>
+                <strong>{{ htmlspecialchars($comment->created_at->diffForHumans()) }}</strong>
                 {{ htmlspecialchars($comment->body) }}
             </article>
         </li>
     @endforeach
     </ul>
-
+    @include('error')
 </div>

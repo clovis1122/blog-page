@@ -20,6 +20,12 @@ Route::get('/posts/{id}/edit', 'PostController@edit');
 Route::patch('/posts/{id}', 'PostController@update');
 Route::delete('/posts/{id}', 'PostController@destroy');
 
+Route::post('/posts/{id}/comments', 'CommentsController@store');
+
+Route::get('/register', 'RegistrationController@create');
+Route::post('/registration', 'RegistrationController@store');
+
+Route::get('/login', 'SessionController@create');
 
 /*
 

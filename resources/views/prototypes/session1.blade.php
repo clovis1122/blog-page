@@ -1,8 +1,9 @@
 @extends ('prototypes.mainpage1')
 
 @include ('prototypes.menu1')
-@include('blogdisplay.post')
+
 <hr>
-@include('comment.display-comment')
-@include('comment.create-comment')
+
+@yield('session')
+
 @include ('prototypes.footer1')

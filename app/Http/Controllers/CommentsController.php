@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Post as post;
-use App\Comment as comment;
+use App\Post;
+use App\Comment;
 
-class PostController extends Controller
+class commentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-
-      $posts = post::latest()->paginate(3);
-      return view('mainpage',compact('posts'));
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('create-blog');
+        //
     }
 
     /**
@@ -36,26 +33,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $id)
     {
-
-        $this->validate($request,
-            [
-            'user' => 'bail|required|max:25',
-            'title' => 'bail|required|max:25',
-            'entry' => 'required'
-            ]
-        );
-
-
-        post::create([
-            'user' => $request->input('user'),
-            'title' => $request->input('title'),
-            'entry' => $request->input('entry')
-            ]);
-
-        return redirect('/');
-
+        $id->comments()->create(['body'=>request('body')]);
+        return back();
     }
 
     /**
@@ -66,10 +47,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = post::find($id);
-        $comments = comment::where('post_id',$post->id)->get();
-
-        return view('view-specific-entry',compact('post'),compact('comments'));
+        //
     }
 
     /**
@@ -80,7 +58,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('notImplemented');
+        //
     }
 
     /**
@@ -92,7 +70,7 @@ class PostController extends Controller
      */
     public function update($request, $id)
     {
-        return view('notImplemented');
+        //
     }
 
     /**
@@ -103,6 +81,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        return view('notImplemented');
+        //
     }
 }
