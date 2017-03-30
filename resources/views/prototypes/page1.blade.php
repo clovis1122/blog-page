@@ -10,8 +10,6 @@
         <title>My Personal blog</title>
     </head>
     <body>
-    @yield('header')
-    @yield('body')
-    @yield('footer')
+    @yield('page')
     </body>
 </html>

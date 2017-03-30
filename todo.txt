@@ -1,0 +1,10 @@
+30/03/2017:
+
+- Protect the app from XSS attacks. [DONE]
+  - Sanitize input & output.
+
+- Reorganize the code to make it more extensible. [IN PROCESS]
+
+- Finish the comment section [NOT DONE]
+
+- Add autentication. [NOT DONE]
