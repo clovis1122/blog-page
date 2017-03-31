@@ -8,3 +8,25 @@
     by <a href="#">{{ htmlspecialchars($post->user->username) }}</a></p>
     <p>{{ htmlspecialchars($post->entry) }}</p>
 </div>
+<hr>
+<p>
+
+<?php
+ $bol = false;
+?>
+
+@foreach($post->tags as $tag)
+
+ @if($bol)
+  , #{{$tag['name']}}
+  @else
+  #{{$tag['name']}}
+  <?php
+ $bol = true;
+  ?>
+  @endif
+
+@endforeach
+
+
+</p>

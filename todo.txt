@@ -1,22 +1,78 @@
-30/03/2017:
+30/03/2017: [ALL TASKS COMPLETED]
 
-- Protect the app from XSS attacks. [DONE]
+- Reorganize the code to make it more extensible.
+
+- Protect the app from XSS attacks.
   - Sanitize input & output.
 
-- Reorganize the code to make it more extensible. [DONE]
-
-- Finish the comment section [DONE]
-   -Display comments in the blog
-   -Allow to submit comments to a blog (in progress)
+- Finish the comment section:
+   -Display comments in the blog.
+   -Allow to submit comments to a blog.
 
 
-31/03/2017:
+31/03/2017: [ALL TASKS COMPLETED]
 
 - Add autentication:
-   -Modify the architecture to allows relation between the user and the post/comment [DONE]
-   -Allows to register [DONE]
-   -Allows to login and track session [DONE]
-   -Display the user creator in both posts and comments [DONE]
-- Allows unique usernames [IN PROGRESS]
-- Optimize query with eagerloader [IN PROGRESS]
--
+   -Modify the architecture to allows relation between the user and the post/comment.
+   -Allows to register.
+   -Allows to login and track session.
+   -Display the user creator in both posts and comments.
+
+- Allows unique usernames
+
+- Flash messages: [DONE]
+   -When the user sign in.
+   -When the user makes a post/comment.
+
+- Set middlewares correctly.
+
+- Tags:
+  - Allow tags in posts
+
+
+
+--------------------------------------------------------------------------
+
+[FOR ANOTHER DAY...]
+
+- Tags:
+  - Allow to submit
+
+
+- Allow edit/delete comments.
+- Allow to respond to a comment.
+- Allow password recovery.
+- Allow email validation & send email to the user once he sign in.
+
+
+- Refactorize the code:
+  - Check that SOLID principles are being applied correctly.
+  - Create a factory of repository elements that access to the database.
+
+- Develop unity & integration tests.
+- Connect the application to an online database (like Firebase!).
+- Deploy the application.
+
+[ADDITIONAL FEATURES LIST]
+
+- Set user page configuration:
+  - Set avatar.
+  - Allow to change username/password/email.
+  - Allow notification when someone post in a user's blog post.
+
+
+- Set a chat in the sidebar!
+  - Show messages in real time
+  - Allow to use some emoticions
+  - Allow to use hashtags and to refer to a blog
+
+
+[TO BE CONSIDERED]
+- Optimize query with eagerloader []
+- Use HTTPS.
+- Style the blog using CSS & javascript.
+
+
+-----------------------------------------------------------------------
+
+-clovis

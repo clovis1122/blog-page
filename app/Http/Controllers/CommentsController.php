@@ -39,6 +39,8 @@ class commentsController extends Controller
             'body'=>request('body'),
             'user_id'=>auth()->id()
             ]);
+
+        session()->flash('message','Comment added successfully!');
         return back();
     }
 

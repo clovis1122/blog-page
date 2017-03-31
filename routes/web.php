@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::get('/home', 'PostController@index');
 Route::get('/', 'PostController@index')->name('home');
 Route::get('/create', 'PostController@create');
 Route::post('/posts', 'PostController@store');

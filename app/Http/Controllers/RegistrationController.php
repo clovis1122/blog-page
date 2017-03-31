@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function create()
     {
         return view('session.register');
     }
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
-
         $this->validate($request,
             [
             'username' => 'bail|required|max:12',
@@ -33,8 +37,8 @@ class RegistrationController extends Controller
 
         auth()->login($user);
 
+        session()->flash('message', 'Registration successfull! Welcome to MyBlog!');
+
         return redirect()->home();
-
     }
-
 }

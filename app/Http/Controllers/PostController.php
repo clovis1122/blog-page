@@ -16,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
 
-      $posts = post::latest()->paginate(3);
+      $posts = post::with('tags')->latest()->paginate(3);
+
       return view('mainpage',compact('posts'));
     }
 
@@ -49,6 +50,7 @@ class PostController extends Controller
         auth()->user()->publish(
             new Post(request(['title','entry']))
             );
+           session()->flash('message','Blog has been posted successfully!');
 
         return redirect('/');
 
