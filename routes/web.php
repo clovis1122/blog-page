@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostController@index')->name('home');
 Route::get('/create', 'PostController@create');
 Route::post('/posts', 'PostController@store');
 Route::get('/posts/{id}', 'PostController@show');
@@ -23,9 +23,11 @@ Route::delete('/posts/{id}', 'PostController@destroy');
 Route::post('/posts/{id}/comments', 'CommentsController@store');
 
 Route::get('/register', 'RegistrationController@create');
-Route::post('/registration', 'RegistrationController@store');
+Route::post('/register/submit', 'RegistrationController@store');
 
 Route::get('/login', 'SessionController@create');
+Route::post('/login/submit', 'SessionController@store');
+Route::get('/logout', 'SessionController@destroy');
 
 /*
 

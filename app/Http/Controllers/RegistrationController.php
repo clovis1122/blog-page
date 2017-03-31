@@ -19,12 +19,17 @@ class RegistrationController extends Controller
             [
             'username' => 'bail|required|max:12',
             'email' => 'bail|required|max:20|email',
-            'password' => 'required|confirmed'
+            'password' => 'bail|required|confirmed'
             ]
         );
 
+        $user = User::create([
 
-        $user = User::create(['username','email','password']);
+            'username' => $request->input('username'),
+            'email'=> $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+
+            ]);
 
         auth()->login($user);
 

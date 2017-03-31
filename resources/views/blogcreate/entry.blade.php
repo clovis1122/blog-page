@@ -1,9 +1,5 @@
 <form class="form" method="POST" action="/posts"> {{ csrf_field() }}
   <div class="form-group">
-    <label for="user">User</label>
-    <input type="text" class="form-control" name="user" required>
-  </div>
-  <div class="form-group">
     <label for="title">Title of the post</label>
     <input type="text" class="form-control" name="title" required>
   </div>

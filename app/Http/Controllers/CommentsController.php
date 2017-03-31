@@ -35,7 +35,10 @@ class commentsController extends Controller
      */
     public function store(Post $id)
     {
-        $id->comments()->create(['body'=>request('body')]);
+        $id->comments()->create([
+            'body'=>request('body'),
+            'user_id'=>auth()->id()
+            ]);
         return back();
     }
 

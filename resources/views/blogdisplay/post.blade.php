@@ -4,6 +4,7 @@
             {{ htmlspecialchars($post->title) }}
         </a>
     </h2>
-    <p class="blog-post-meta">{{ htmlspecialchars($post->created_at->toFormattedDateString()) }} by <a href="#">{{ htmlspecialchars($post->user) }}</a></p>
+    <p class="blog-post-meta">{{ htmlspecialchars($post->created_at->toFormattedDateString()) }}
+    by <a href="#">{{ htmlspecialchars($post->user->username) }}</a></p>
     <p>{{ htmlspecialchars($post->entry) }}</p>
 </div>

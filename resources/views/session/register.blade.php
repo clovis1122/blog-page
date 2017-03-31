@@ -3,7 +3,7 @@
 
 @section('session')
 
-<form class="form" method="POST" action="/registration"> {{ csrf_field() }}
+<form class="form" method="POST" action="/register/submit"> {{ csrf_field() }}
   <div class="form-group">
     <label for="username">Username</label>
     <input type="text" class="form-control" name="username" required>

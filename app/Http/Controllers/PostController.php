@@ -41,18 +41,14 @@ class PostController extends Controller
 
         $this->validate($request,
             [
-            'user' => 'bail|required|max:25',
             'title' => 'bail|required|max:25',
             'entry' => 'required'
             ]
         );
 
-
-        post::create([
-            'user' => $request->input('user'),
-            'title' => $request->input('title'),
-            'entry' => $request->input('entry')
-            ]);
+        auth()->user()->publish(
+            new Post(request(['title','entry']))
+            );
 
         return redirect('/');
 

@@ -9,4 +9,14 @@
    -Display comments in the blog
    -Allow to submit comments to a blog (in progress)
 
-- Add autentication. [NOT DONE]
+
+31/03/2017:
+
+- Add autentication:
+   -Modify the architecture to allows relation between the user and the post/comment [DONE]
+   -Allows to register [DONE]
+   -Allows to login and track session [DONE]
+   -Display the user creator in both posts and comments [DONE]
+- Allows unique usernames [IN PROGRESS]
+- Optimize query with eagerloader [IN PROGRESS]
+-
