@@ -19,13 +19,13 @@ Route::get('/posts/{id}', 'PostController@show');
 Route::get('/posts/{id}/edit', 'PostController@edit');
 Route::patch('/posts/{id}', 'PostController@update');
 Route::delete('/posts/{id}', 'PostController@destroy');
+Route::post('/posts/{id}/comments', 'PostController@addComment');
 
-Route::post('/posts/{id}/comments', 'CommentsController@store');
 
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register/submit', 'RegistrationController@store');
 
-Route::get('/login', 'SessionController@create');
+Route::get('/login', 'SessionController@create')->name('login');
 Route::post('/login/submit', 'SessionController@store');
 Route::get('/logout', 'SessionController@destroy');
 

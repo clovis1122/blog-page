@@ -11,20 +11,15 @@
 <hr>
 <p>
 
-<?php
- $bol = false;
-?>
 
 @foreach($post->tags as $tag)
 
- @if($bol)
+    @if ($loop->first)
+        #{{ $tag['name'] }}
+        @continue
+    @endif
+
   , #{{$tag['name']}}
-  @else
-  #{{$tag['name']}}
-  <?php
- $bol = true;
-  ?>
-  @endif
 
 @endforeach
 

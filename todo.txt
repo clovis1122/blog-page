@@ -20,7 +20,7 @@
 
 - Allows unique usernames
 
-- Flash messages: [DONE]
+- Flash messages:
    -When the user sign in.
    -When the user makes a post/comment.
 
@@ -31,19 +31,25 @@
 
 
 
---------------------------------------------------------------------------
+02/04/2017
 
-[FOR ANOTHER DAY...]
+- Verify if username is valid
 
 - Tags:
   - Allow to submit
 
+- Email:
+  - Allow password recovery.
+  - Allow email validation & send email to the user once he sign in.
+
+
+--------------------------------------------------------------------------
+
+[FOR ANOTHER DAY...]
+
 
 - Allow edit/delete comments.
 - Allow to respond to a comment.
-- Allow password recovery.
-- Allow email validation & send email to the user once he sign in.
-
 
 - Refactorize the code:
   - Check that SOLID principles are being applied correctly.
@@ -52,6 +58,8 @@
 - Develop unity & integration tests.
 - Connect the application to an online database (like Firebase!).
 - Deploy the application.
+
+
 
 [ADDITIONAL FEATURES LIST]
 

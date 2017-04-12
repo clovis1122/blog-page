@@ -3,21 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post as post;
-use App\Comment as comment;
+use App\interfaces\PostInterface as PostInterface;
 
 class PostController extends Controller
 {
+    private $post;
+
+    public function __construct(PostInterface $post){
+    $this->post = $post;
+
+    $this->middleware('auth', ['except' => ['index', 'show']]  );
+
+     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-
-      $posts = post::with('tags')->latest()->paginate(3);
-
+      $posts = $this->post->latestPosts(3);
       return view('mainpage',compact('posts'));
     }
 
@@ -26,6 +33,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('create-blog');
@@ -37,23 +45,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
+        $this->validatePost($request);
+        $this->post->createPost(
 
-        $this->validate($request,
-            [
-            'title' => 'bail|required|max:25',
-            'entry' => 'required'
-            ]
-        );
+            auth()->user()->id,
+            request('title'),
+            request('entry')
 
-        auth()->user()->publish(
-            new Post(request(['title','entry']))
             );
-           session()->flash('message','Blog has been posted successfully!');
 
+        session()->flash('message','Blog has been posted successfully!');
         return redirect('/');
-
     }
 
     /**
@@ -64,43 +69,31 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = post::find($id);
-        $comments = comment::where('post_id',$post->id)->get();
-
-        return view('view-specific-entry',compact('post'),compact('comments'));
+        $post = $this->post->findById($id);
+        return view('view-specific-entry',compact('post'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function addComment($id)
     {
-        return view('notImplemented');
+        $this->post->addComment(
+
+             auth()->id(),
+             $id,
+             request('body')
+
+            );
+
+        session()->flash('message','Comment added successfully!');
+        return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update($request, $id)
-    {
-        return view('notImplemented');
+    private function validatePost($request){
+        $this->validate($request,
+            [
+            'title' => 'bail|required|max:25',
+            'entry' => 'required'
+            ]
+        );
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        return view('notImplemented');
-    }
 }

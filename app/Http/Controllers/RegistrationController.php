@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
+use App\repository\UserRepository as user;
 
 class RegistrationController extends Controller
 {
@@ -19,6 +19,25 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
+        $this->validateInput($request);
+
+        $user = user::createUser(
+
+            request('username'),
+            request('email'),
+            request('password')
+
+            );
+
+        auth()->login($user);
+
+        session()->flash('message', 'Registration successfull! Welcome to MyBlog!');
+
+        return redirect()->home();
+    }
+
+    private function validateInput($request)
+    {
         $this->validate($request,
             [
             'username' => 'bail|required|max:12',
@@ -26,19 +45,5 @@ class RegistrationController extends Controller
             'password' => 'bail|required|confirmed'
             ]
         );
-
-        $user = User::create([
-
-            'username' => $request->input('username'),
-            'email'=> $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-
-            ]);
-
-        auth()->login($user);
-
-        session()->flash('message', 'Registration successfull! Welcome to MyBlog!');
-
-        return redirect()->home();
     }
 }

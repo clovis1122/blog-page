@@ -3,9 +3,7 @@
 @section('content')
 
     <div class="container">
-    @foreach ($posts as $post)
-        @include('blogdisplay.post')
-    @endforeach
+        @each('blogdisplay.post',$posts,'post')
     </div>
 
     @if (count($posts) > 1)
